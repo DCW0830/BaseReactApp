@@ -1,13 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, About } from './pages';
+import { LayOut } from './components';
+import { Home, About, Contact } from './pages';
 import './App.css';
 
-export const App = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<LayOut />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
